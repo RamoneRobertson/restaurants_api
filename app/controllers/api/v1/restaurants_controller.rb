@@ -4,6 +4,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   end
 
   def show
+    @restaurant = set_restaurant
   end
 
   private
