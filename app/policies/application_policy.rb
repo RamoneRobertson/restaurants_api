@@ -36,9 +36,6 @@ class ApplicationPolicy
     false
   end
 
-  def resolve
-  end
-
   class Scope
     def initialize(user, scope)
       @user = user
