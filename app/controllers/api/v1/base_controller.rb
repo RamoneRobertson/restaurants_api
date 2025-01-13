@@ -1,11 +1,11 @@
 class Api::V1::BaseController < ApplicationController
-  include Pundit
+  include Pundit::Authorization
 
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  rescue_from Pundit::ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   private
 
