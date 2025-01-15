@@ -67,3 +67,5 @@ group :test do
 end
 
 gem "lockbox", "~> 2.0"
+
+gem "blind_index", "~> 2.6"
