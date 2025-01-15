@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_14_151629) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_15_131006) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -47,7 +47,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_14_151629) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "private_api_key_ciphertext"
+    t.string "private_api_key_bidx"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["private_api_key_bidx"], name: "index_users_on_private_api_key_bidx", unique: true
   end
 
   add_foreign_key "comments", "restaurants"
